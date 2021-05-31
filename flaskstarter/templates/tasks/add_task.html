@@ -1,0 +1,15 @@
+{% from "macros/_form.html" import render_form %}
+
+{% set page_title = 'Add Task' %}
+
+{% extends 'layouts/base.html' %}
+
+{% block body %}
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-6 offset-3">
+        {{ render_form(url_for('tasks.add_task'), form)}}
+      </div>
+    </div>
+  </div>
+{% endblock %}

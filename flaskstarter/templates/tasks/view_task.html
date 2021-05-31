@@ -1,0 +1,22 @@
+{% from "macros/_form.html" import render_form %}
+
+{% set page_title = 'View Task' %}
+
+{% extends 'layouts/base.html' %}
+
+{% block body %}
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-6 offset-3">
+      	<div class="card mb-6 box-shadow">
+            <div class="card-body">
+            	<p class="card-text">{{ task.task }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">{{ task.added_time | _pretty_date }}</small>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

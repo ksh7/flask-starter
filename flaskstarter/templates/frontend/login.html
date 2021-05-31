@@ -1,0 +1,16 @@
+{% from "macros/_form.html" import render_form %}
+
+{% set page_title = 'Login' %}
+
+{% extends 'layouts/base.html' %}
+
+{% block body %}
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-4 offset-4">
+        {{ render_form(url_for('frontend.login'), form)}}
+        <a href="{{url_for('frontend.reset_password')}}" class="auth-link">Forgot Password?</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

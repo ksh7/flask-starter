@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Flask-Starter-App - Python Flask Starter Template">
+  <meta name="author" content="github.com/">
+
+  <title>{% block title %}{{ page_title|default('Flask-Starter') }}{% endblock %} - Flask-Starter-App</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename='bootstrap.min.css')}}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('frontend.index') }}">Flask-Starter</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      {% include 'layouts/header.html'%}
+    </div>
+  </nav>
+  {% include 'macros/_flash_msg.html' %}
+  <!-- Page Content -->
+  {% block body %}
+
+  {% endblock %}
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename='jquery.slim.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='bootstrap.bundle.min.js')}}"></script>
+
+</body>
+
+</html>

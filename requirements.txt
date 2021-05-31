@@ -1,0 +1,10 @@
+Flask[async]
+Flask-SQLAlchemy
+Flask-WTF
+Flask-Mail
+Flask-Caching
+Flask-Login
+Flask-Admin
+email-validator
+itsdangerous
+pytest
