@@ -208,4 +208,4 @@ Note: This web application has been tested thoroughly during multiple large proj
 
 ## Need Help? 🤝
 
-If you need further help, reach out to me via [Twitter](https://twitter.com/ksingh_me) DM.
+If you need further help, reach out to me via [Twitter](https://twitter.com/kundan7_) DM.
