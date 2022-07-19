@@ -61,7 +61,7 @@ class Users(db.Model, UserMixin):
 
     created_time = Column(db.DateTime, default=get_current_time)
 
-    _password = Column('password', db.String(100), nullable=False)
+    _password = Column('password', db.String(128), nullable=False)
 
     def _get_password(self):
         return self._password
