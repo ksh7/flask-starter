@@ -49,7 +49,7 @@ class RecoverPasswordForm(FlaskForm):
 class ChangePasswordForm(FlaskForm):
     email_activation_key = HiddenField()
     email = HiddenField()
-    password = PasswordField(u'Password', [InputRequired()])
+    password = PasswordField(u'Password', [InputRequired(),Length(PASSWORD_LEN_MIN, PASSWORD_LEN_MAX)])
     password_again = PasswordField(u'Password again', [EqualTo('password', message="Passwords don't match")])
     submit = SubmitField('Save')
 
