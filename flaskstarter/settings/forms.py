@@ -15,6 +15,10 @@ class ProfileForm(FlaskForm):
     email = EmailField(u'Email', [InputRequired(), Email()])
     submit = SubmitField(u'Update')
 
+    def validate_email(self, field):
+        if Users.query.filter(Users.email.ilike(field.data), Users.id != current_user.id).first() is not None:
+            raise ValidationError(u'This email is taken')
+
 
 class PasswordForm(FlaskForm):
     password = PasswordField('Current password', [InputRequired()])

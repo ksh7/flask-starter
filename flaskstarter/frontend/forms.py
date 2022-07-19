@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import sys
 from flask import Markup
 
 from flask_wtf import FlaskForm
@@ -36,7 +37,7 @@ class SignupForm(FlaskForm):
     submit = SubmitField('Sign up')
 
     def validate_email(self, field):
-        if Users.query.filter_by(email=field.data).first() is not None:
+        if Users.query.filter(Users.email.ilike(field.data)).first() is not None:
             raise ValidationError(u'This email is taken')
 
 
@@ -48,7 +49,7 @@ class RecoverPasswordForm(FlaskForm):
 class ChangePasswordForm(FlaskForm):
     email_activation_key = HiddenField()
     email = HiddenField()
-    password = PasswordField(u'Password', [InputRequired()])
+    password = PasswordField(u'Password', [InputRequired(),Length(PASSWORD_LEN_MIN, PASSWORD_LEN_MAX)])
     password_again = PasswordField(u'Password again', [EqualTo('password', message="Passwords don't match")])
     submit = SubmitField('Save')
 

@@ -107,7 +107,6 @@ def signup():
         user.status_code = 2
         user.account_type = 0
         form.populate_obj(user)
-
         db.session.add(user)
         db.session.commit()
 
@@ -164,7 +163,7 @@ def change_password():
 
 
 def update_password(email, email_activation_key, password):
-    user = Users.query.filter_by(email_activation_key=email_activation_key, email=email).first()
+    user = Users.query.filter(Users.email.ilike(email), email_activation_key=email_activation_key).first()
     user.password = password
     user.email_activation_key = None
     db.session.add(user)
@@ -176,7 +175,7 @@ def reset_password():
     form = RecoverPasswordForm()
 
     if form.validate_on_submit():
-        user = Users.query.filter_by(email=form.email.data).first()
+        user = Users.query.filter(Users.email.ilike(form.email.data)).first()
 
         if user:
             flash('Please see your email for instructions on how to access your account', 'success')
